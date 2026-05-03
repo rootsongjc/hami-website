@@ -90,10 +90,10 @@ HAMi WebUI 采用前后端分离架构，分为三层：
 
 HAMi WebUI 面向所有与 HAMi 管理的 GPU 集群交互的角色：
 
-- **集群管理员** — 需要全局视角了解 GPU 资源健康度和利用率
-- **平台工程师** — 排查 GPU 资源分配问题，优化集群效率
-- **AI/ML 团队负责人** — 希望了解训练和推理工作负载的 GPU 消耗情况
-- **SRE** — 需要快速获取 GPU 指标，辅助监控和告警研判
+- **集群管理员** - 需要全局视角了解 GPU 资源健康度和利用率
+- **平台工程师** - 排查 GPU 资源分配问题，优化集群效率
+- **AI/ML 团队负责人** - 希望了解训练和推理工作负载的 GPU 消耗情况
+- **SRE** - 需要快速获取 GPU 指标，辅助监控和告警研判
 
 ## 快速开始
 
@@ -125,8 +125,8 @@ kubectl port-forward service/my-hami-webui 3000:3000 --namespace=kube-system
 
 HAMi 社区准备了完善的文档体系：
 
-- **[WebUI 用户指南](/docs/userguide/hami-webui-user-guide)** — 了解如何使用集群总览、节点管理、GPU 管理和工作负载追踪功能。
-- **[WebUI 开发者指南](/docs/developers/hami-webui-development-guide)** — 了解项目架构、代码仓库结构、本地开发环境和编码规范，参与 WebUI 贡献。
+- **[WebUI 用户指南](/docs/userguide/hami-webui-user-guide)** - 了解如何使用集群总览、节点管理、GPU 管理和工作负载追踪功能。
+- **[WebUI 开发者指南](/docs/developers/hami-webui-development-guide)** - 了解项目架构、代码仓库结构、本地开发环境和编码规范，参与 WebUI 贡献。
 
 ## 参与贡献
 
