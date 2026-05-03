@@ -69,7 +69,7 @@ The problem with the traditional model is its limited expressiveness:
   - Multi-card combinations
   - Topology (NUMA / NVLink)
 
-👉 This directly leads to:
+This directly leads to:
 
 - Scheduling logic leakage (extender / sidecar)
 - Increased system complexity
@@ -91,7 +91,7 @@ Key change:
 
 A key slide in the PPT, often overlooked:
 
-### 👉 DRA request looks like this
+### DRA request looks like this
 
 ```yaml
 spec:
@@ -119,7 +119,7 @@ resources:
     nvidia.com/gpu: 1
 ```
 
-👉 The conclusion is clear:
+The conclusion is clear:
 
 > **DRA is an upgrade in capability, but UX is clearly degraded.**
 
@@ -127,7 +127,7 @@ resources:
 
 One of the most valuable parts of this talk:
 
-### 👉 Webhook Automatically Generates ResourceClaim
+### Webhook Automatically Generates ResourceClaim
 
 HAMi's approach is not to have users "use DRA directly", but:
 
@@ -178,7 +178,7 @@ DRA driver is not just "registering resources", but full lifecycle management:
 - Environment variable management
 - Temporary directories (cache / lock)
 
-👉 This means:
+This means:
 
 > **GPU scheduling has entered the runtime orchestration layer, not just simple resource allocation.**
 
@@ -191,7 +191,7 @@ A key benchmark from the PPT:
 - HAMi (traditional): up to ~42,000
 - HAMi-DRA: significantly reduced (~30%+ improvement)
 
-👉 This shows:
+This shows:
 
 > **DRA's resource pre-binding mechanism can reduce scheduling conflicts and retries**
 
@@ -211,7 +211,7 @@ An underestimated change:
 - ResourceClaim: resource allocation
 - → **Resource perspective is first-class**
 
-👉 The change:
+The change:
 
 > **Observability shifts from "inference" to "direct modeling"**
 
@@ -227,7 +227,7 @@ For example:
 - PCI bus ID
 - GPU attributes
 
-👉 This is a bigger narrative:
+This is a bigger narrative:
 
 > **DRA is the starting point for heterogeneous compute abstraction**
 
@@ -249,7 +249,7 @@ Connecting these points reveals a bigger trend:
 
 - Scheduling logic → resource declaration
 
-👉 Essentially:
+Essentially:
 
 > **Kubernetes is evolving into the AI Infra Control Plane**
 
