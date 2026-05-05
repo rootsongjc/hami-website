@@ -127,7 +127,7 @@ The current list of maintainers can be found in the [MAINTAINERS](https://github
 
 ### An active maintainer should
 
-* Actively participate in reviewing pull requests and incoming issues. Note that there are no hard rules on what is “active enough” and this is left up to the judgement of the current group of maintainers.
+* Actively participate in reviewing pull requests and incoming issues. There are no hard rules on what is “active enough” - this is left up to the judgement of the current group of maintainers.
 
 * Actively participate in discussions about design and the future of the project.
 
