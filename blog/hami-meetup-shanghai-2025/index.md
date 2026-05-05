@@ -15,4 +15,4 @@ This article about the HAMi Meetup Shanghai event is **only available in Chinese
 
 ---
 
-👉 Use the language selector in the top right corner to switch to **简体中文** (Simplified Chinese).
+Use the language selector in the top right corner to switch to **简体中文** (Simplified Chinese).
