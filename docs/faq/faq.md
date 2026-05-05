@@ -78,7 +78,7 @@ In summary, while HAMi's own priority serves a different, device-specific purpos
 
 - **KubeVirt & Kata Containers**: Incompatible due to their reliance on virtualization for resource isolation, whereas HAMi’s GPU Device Plugin depends on direct GPU mounting into containers. Supporting these would require adapting the device allocation logic, balancing performance overhead and implementation complexity. HAMi prioritizes high-performance scenarios with direct GPU mounting and thus does not currently support these virtualization solutions.
 
-## Why are there [HAMI-core Warn(...)] logs in my Pod's output? Can I disable them?
+## Why are there [HAMi-core Warn(...)] logs in my Pod's output? Can I disable them?
 
 This is normal and can be ignored. If needed, disable the logs by setting the environment variable `LIBCUDA_LOG_LEVEL=0` in the container.
 
