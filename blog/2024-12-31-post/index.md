@@ -272,7 +272,7 @@ func (dev *NvidiaGPUDevices) MutateAdmission(ctr *corev1.Container, p *corev1.Po
 ```
 
 The scheduler mainly checks whether the `Resources Limit` section of the Pod includes configurations defined in `device-config.yaml`.  
-If such configurations are present, the HAMI scheduling process is used.
+If such configurations are present, the HAMi scheduling process is used.
 
 An example of `device-config` for NVIDIA GPUs:
 
@@ -840,7 +840,7 @@ func start() {
  go initMetrics(config.MetricsBindAddress)
 ```
 
-The scheduler calls this during startup, which clarifies the logic. Let's now continue by looking at the `device` from earlier.
+The scheduler calls this during startup, which clarifies the logic. The next step is to look at the `device` from earlier.
 
 ###### device
 
@@ -1237,7 +1237,7 @@ metadata:
 
 #### Binding Implementation
 
-The bind logic is straightforward: it simply binds the Pod to the Node.
+The bind logic is direct: it binds the Pod to the Node.
 
 `pkg/scheduler/routes/route.go:82`
 
