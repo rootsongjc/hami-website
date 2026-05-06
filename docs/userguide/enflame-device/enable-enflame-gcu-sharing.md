@@ -17,7 +17,7 @@ title: Enable Enflame GPU Sharing
 
 ## Prerequisites
 
-* Enflame gcushare-device-plugin >= 2.1.6 (please consult your device provider, gcushare has two components: gcushare-scheduler-plugin and gcushare-device-plugin, we only need gcushare-device-plugin here )
+* Enflame gcushare-device-plugin >= 2.1.6 (please consult your device provider, gcushare has two components: gcushare-scheduler-plugin and gcushare-device-plugin; only gcushare-device-plugin is needed here)
 * driver version >= 1.2.3.14
 * kubernetes >= 1.24
 * enflame-container-toolkit >=2.0.50
