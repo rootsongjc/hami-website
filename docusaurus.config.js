@@ -233,10 +233,6 @@ module.exports = {
       defaultMode: "dark",
       respectPrefersColorScheme: false,
     },
-    announcementBar: {
-      id: "hami-meetup-shenzhen-3rd", // Increment on change
-      content: 'theme.announcementBar.message',
-    },
     navbar: {
       title: "HAMi",
       logo: {
