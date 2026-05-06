@@ -36,7 +36,7 @@ For large-scale clusters or high-availability deployment scenarios, HAMi v2.8.0 
 
 - Avoids resource conflicts from concurrent scheduling by multiple instances
 - Improves the high availability of the Scheduler component
-- Provides a more robust operational model for long-running production clusters
+- Provides a stable operational model for long-running production clusters
 
 This mechanism makes HAMi more suitable for deployment in production environments with high requirements for stability and fault tolerance.
 
@@ -94,7 +94,7 @@ These improvements further enhance HAMi's availability and expansion space in he
 
 ## Upstream and Downstream Ecosystem Integration Progress
 
-HAMi is not just an independent project but also continues to co-evolve with key components in the Kubernetes AI ecosystem. Current major integration directions include:
+HAMi is not only an independent project but also continues to co-evolve with key components in the Kubernetes AI ecosystem. Current major integration directions include:
 
 - **Kueue**: The HAMi community has contributed enhancement capabilities to the Kueue project, enabling native support for HAMi's device resource management and scheduling model, providing heterogeneous device scheduling support for batch AI job queue management
 - **vLLM**: Fixed compatibility issues in multi-card scenarios (see related issues [#1461](https://github.com/Project-HAMi/HAMi/issues/1461) and [#1381](https://github.com/Project-HAMi/HAMi/issues/1381))
@@ -103,7 +103,7 @@ These ecosystem integrations help users build more complete compute scheduling a
 
 ## Community and Project Progress
 
-HAMi is not just a code repository but also a continuously evolving open-source community and project organization.
+HAMi is not only a code repository but also a continuously evolving open-source community and project organization.
 
 During the v2.8.0 cycle, the community has remained active in the following areas:
 
