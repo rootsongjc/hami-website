@@ -22,9 +22,9 @@ The discussions around GPUs are no longer limited to "device visibility" or "dri
 
 The official agenda of KubeCon Europe 2026 reflects this trend across keynotes, AI-related sessions, Project Pavilion, and co-located events.
 
-In this context, HAMi's problem space becomes clearer: it's not simply about "making Kubernetes recognize GPUs," but making GPUs a resource layer capability that can be abstracted, shared, and scheduled.
+In this context, HAMi's problem space becomes clearer: it's not only about "making Kubernetes recognize GPUs," but making GPUs a resource layer capability that can be abstracted, shared, and scheduled.
 
-This is why this KubeCon is more than just a project showcase for the HAMi community—it's an opportunity to engage with the broader cloud native ecosystem.
+This is why this KubeCon is more than a project showcase for the HAMi community - it's an opportunity to engage with the broader cloud native ecosystem.
 
 ## Finding HAMi at KubeCon
 
@@ -97,7 +97,7 @@ For HAMi, this is an important venue to bring GPU resource management and AI wor
 - **Speakers**: Satyam Soni (Devtron) & Rudraksh Karpe (ZS Associates)
 - **Agenda**: [Kubernetes as the Universal GPU Control Plane for AI Workloads](https://kccnceu2026.sched.com/event/2CW0q/poster-session-kubernetes-as-the-universal-gpu-control-plane-for-ai-workloads-satyam-soni-devtronai-rudraksh-karpe-zs-associates-inc?iframe=yes&w=100%&sidebar=yes&bg=no)
 
-This poster session discusses the potential of Kubernetes as a GPU control plane from an ecosystem perspective—a direction highly relevant to HAMi's long-term focus.
+This poster session discusses the potential of Kubernetes as a GPU control plane from an ecosystem perspective - a direction relevant to HAMi's long-term focus.
 
 ### 5. Main Stage Demo
 
@@ -105,7 +105,7 @@ This poster session discusses the potential of Kubernetes as a GPU control plane
 - **Location**: Hall 12
 - **Speakers**: Mengxuan Li (CTO, Dynamia, HAMi Maintainer), Reza Jelveh (Head of Global Market & Solution Engineer, Dynamia)
 
-The main stage demo during KubeCon will showcase GPU sharing and scheduling in action within Kubernetes. Compared to traditional slide presentations, this demo provides a more intuitive understanding of the complete chain from resource abstraction to system implementation.
+The main stage demo during KubeCon will showcase GPU sharing and scheduling in action within Kubernetes, covering the complete chain from resource abstraction to system implementation.
 
 ### 6. AI Native Summit
 
