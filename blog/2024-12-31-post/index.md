@@ -19,13 +19,13 @@ This section provides a rough walkthrough of the related code to explain the int
 
 ## Scheduling Process
 
-Before diving into the code, it's helpful to first check the official documentation, which provides a clear overview:
+The official documentation provides a clear overview before looking at the code:
 
 ![flowchart](https://github.com/Project-HAMi/HAMi/blob/master/docs/develop/imgs/flowchart.jpeg?raw=true)
 
 The process can be broken down into three phases:
 
-- **Preparation Phase**: From the diagram, we can see some prerequisites, such as the need for a Mutating Webhook, device-plugin, etc.  
+- **Preparation Phase**: The diagram shows the prerequisites: a Mutating Webhook, device-plugin, etc.  
   This phase primarily analyzes the preparation of dependencies, which are only needed during the initial service startup.
 
   ![Preparation before Pod creation](https://github.com/elrondwong/elrond.wang/raw/master/img/posts/Hami-GPU-Pod-Scheduler/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.png)
@@ -41,7 +41,7 @@ This article focuses on analyzing the preparation phase, mainly around the sched
 - The Admission Webhook is triggered, updating the `schedulerName` in the Pod.
 - The kube-apiserver sends the request to the scheduler based on the `schedulerName`.
 - The scheduler processes the request:
-  - Collects node device information — collected via node annotations, with data periodically written by the `hami-device-plugin` DaemonSet.
+  - Collects node device information - collected via node annotations, with data periodically written by the `hami-device-plugin` DaemonSet.
   - Scores nodes based on device information and the Pod’s resource limits, selecting the highest-scoring node.
   - Binds the Pod to the node and completes the Pod creation.
 
@@ -98,7 +98,7 @@ Misconfiguration often refers to an incorrect `devicememoryscaling` setting. Thi
 ### MutatingWebhook
 
 Kubernetes provides the `admissionWebhook` resource, which is triggered by resource operations in Kubernetes.  
-Its most common use is intercepting Pod creation and injecting YAML content into the Pod — for example, adding an init container to inject files.
+Its most common use is intercepting Pod creation and injecting YAML content into the Pod - for example, adding an init container to inject files.
 
 #### Webhook Configuration
 
@@ -681,7 +681,7 @@ func GetDevices() map[string]Devices {
 }
 ```
 
-The `device` is also cached, which will be analyzed later. First, let's look at when the Node cache is called.
+The `device` is also cached, which will be analyzed later. Next is when the Node cache is called.
 
 ```golang
 func (s *Scheduler) RegisterFromNodeAnnotations() {
@@ -1378,7 +1378,7 @@ func main() {
 #### Starting the Plugin
 
 The plugin here is designed to implement different methods for devices from different vendors. The plugin controller defines operations such as start, restart, exit, etc.  
-Our main focus here is on `plugins, restartPlugins, err := startPlugins(c, flags, restarting)`.
+The main focus here is on `plugins, restartPlugins, err := startPlugins(c, flags, restarting)`.
 
 `cmd/device-plugin/nvidia/main.go:156`
 
