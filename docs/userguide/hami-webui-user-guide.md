@@ -77,4 +77,4 @@ HAMi WebUI provides a visualization solution centered on GPU resources, enabling
 - Analyze resource usage
 - Locate issues and optimize resource usage
 
-In production environments, WebUI can significantly reduce the complexity of GPU operations and management.
+In production environments, WebUI reduces the overhead of GPU operations and management.
