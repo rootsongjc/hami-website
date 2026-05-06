@@ -10,7 +10,7 @@ authors: [hami_community]
 
 ## What is HAMi?
 
-HAMi (Heterogeneous AI Computing Virtualization Middleware), formerly known as k8s-vGPU-scheduler, is an innovative solution designed to manage heterogeneous AI computing devices within Kubernetes clusters. This all-in-one middleware enables the sharing of various AI devices while ensuring resource isolation among different tasks. By improving the utilization rates of heterogeneous computing devices, HAMi provides a unified multiplexing interface that caters to diverse device types.
+HAMi (Heterogeneous AI Computing Virtualization Middleware), formerly known as k8s-vGPU-scheduler, manages heterogeneous AI computing devices within Kubernetes clusters. It enables sharing of various AI devices while enforcing resource isolation between tasks, and provides a unified interface for different device types.
 
 <!-- truncate -->
 
@@ -18,28 +18,28 @@ HAMi (Heterogeneous AI Computing Virtualization Middleware), formerly known as k
 
 ### Kubernetes Native API Compatibility
 
-One of the standout features of HAMi is its compatibility with Kubernetes' native API. This means that users can upgrade to HAMi without making any changes to their existing configurations, allowing for a seamless transition while maintaining the default behavior of Kubernetes.
+HAMi is compatible with Kubernetes' native API. Users can adopt HAMi without changing existing configurations, and Kubernetes default behavior is preserved.
 
 ### Open and Neutral
 
-HAMi is a collaborative initiative involving stakeholders from various sectors, including internet services, finance, manufacturing, and cloud providers. The goal is to establish open governance under the Cloud Native Computing Foundation (CNCF), ensuring that HAMi remains neutral and accessible to all users.
+HAMi is developed by stakeholders from internet services, finance, manufacturing, and cloud providers. Governance is open under the Cloud Native Computing Foundation (CNCF).
 
 ### Avoid Vendor Lock-in
 
-With HAMi, users can integrate with mainstream cloud providers without being tied to proprietary vendor orchestration. This flexibility allows organizations to choose their preferred cloud solutions while leveraging the capabilities of HAMi.
+HAMi integrates with mainstream cloud providers without requiring proprietary vendor orchestration. Organizations can use their preferred cloud solutions alongside HAMi.
 
 ### Resource Isolation
 
-HAMi provides robust resource isolation within containers. Each task running in a container is restricted to its allocated resources, preventing any task from exceeding its quota. This hard isolation enhances security and stability within the computing environment.
+HAMi enforces resource isolation within containers. Each task is restricted to its allocated resources, preventing quota overuse. Hard limits improve security and stability.
 
 ### Support for a Variety of Heterogeneous Computing Devices
 
-HAMi excels in supporting a wide range of heterogeneous computing devices. Whether it's GPUs, MLUs, or NPUs from various manufacturers, HAMi facilitates device sharing and maximizes resource efficiency across different hardware platforms.
+HAMi supports GPUs, MLUs, NPUs, and other accelerators from multiple vendors. Devices can be shared across tasks, improving resource efficiency.
 
 ### Unified Management
 
-To streamline operations, HAMi offers a unified monitoring system along with configurable scheduling policies such as bin packing and spreading. This comprehensive management approach simplifies the oversight of resources and enhances overall system performance.
+HAMi includes a unified monitoring system and configurable scheduling policies such as bin packing and spreading.
 
-## Conclusion
+## Get Started
 
-In conclusion, HAMi represents a significant advancement in the management of heterogeneous AI computing resources within Kubernetes environments. Its compatibility with existing systems, commitment to open governance, and robust resource management capabilities make it an essential tool for organizations looking to optimize their AI computing infrastructure. Join us on this journey towards more efficient and flexible AI computing with HAMi!
+HAMi works with existing Kubernetes configurations and supports multiple device vendors. See the [installation guide](/docs/get-started/deploy-with-helm) to deploy it in your cluster.
