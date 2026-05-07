@@ -824,7 +824,7 @@ metadata:
       GeForce RTX 3090,0,true:
 ```
 
-The `device` is called again here, which we will look into later. For now, let's continue to examine who calls `RegisterFromNodeAnnotations`.
+The `device` is called again here and examined later. Next, looking at who calls `RegisterFromNodeAnnotations`.
 
 `cmd/scheduler/main.go:70`
 
@@ -870,7 +870,7 @@ func InitDevicesWithConfig(config *Config) {
 }
 ```
 
-Since NVIDIA is used here, we mainly need to focus on `InitNvidiaDevice`.
+Since NVIDIA is used here, the focus is on `InitNvidiaDevice`.
 
 `pkg/device/devices.go:42`
 

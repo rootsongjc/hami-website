@@ -123,7 +123,7 @@ For detailed instructions, refer to the [HAMi WebUI Installation Guide](/docs/in
 
 ## Documentation
 
-The HAMi community has prepared comprehensive documentation:
+The HAMi community has prepared documentation:
 
 - **[WebUI User Guide](/docs/userguide/hami-webui-user-guide)** - Learn how to use the cluster overview, node management, GPU management, and workload tracking features.
 - **[WebUI Developer Guide](/docs/developers/hami-webui-development-guide)** - Understand the architecture, repository structure, local development setup, and coding conventions for contributing to WebUI.
