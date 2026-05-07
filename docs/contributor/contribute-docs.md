@@ -9,7 +9,7 @@ the `Project-HAMi/website` repository.
 ## Prerequisites
 
 - Docs, like codes, are also categorized and stored by version.
-  1.3 is the first version we have archived.
+  1.3 is the first archived version.
 - Docs need to be translated into multiple languages for readers from different regions.
   The community now supports both Chinese and English.
   English is the official language of documentation.
@@ -88,7 +88,7 @@ title: A doc with tags
 ```
 
 The top section between two lines of --- is the Front Matter section.
-Here we define a couple of entries which tell Docusaurus how to handle the article:
+The following entries tell Docusaurus how to handle the article:
 
 - Title is the equivalent of the `<h1>` in an HTML document or `# <title>` in a Markdown article.
 - Each document has a unique ID. By default, a document ID is the name of the document
@@ -202,6 +202,6 @@ If the previewed page is not what you expected, please check your docs again.
 
 ### Versioning
 
-For the newly supplemented documents of each version, we will synchronize to the latest version
+Newly supplemented documents for each version are synchronized to the latest version
 on the release date of each version, and the documents of the old version will not be modified.
-For errata found in the documentation, we will fix it with every release.
+Errata found in the documentation are fixed with every release.
