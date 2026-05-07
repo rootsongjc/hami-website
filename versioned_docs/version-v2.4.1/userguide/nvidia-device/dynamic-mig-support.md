@@ -137,7 +137,7 @@ You can customize the mig configuration by following the steps below:
 ## Running MIG jobs
 
 MIG instance can now be requested by a container the same way as using `hami-core`
-simply by specifying the `nvidia.com/gpu` and `nvidia.com/gpumem` resource type.
+by specifying the `nvidia.com/gpu` and `nvidia.com/gpumem` resource type.
 
 ```yaml
 apiVersion: v1
