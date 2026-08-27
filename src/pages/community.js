@@ -58,6 +58,41 @@ const maintainers = [
   },
 ];
 
+const ambassadorProgramUrl =
+  "https://github.com/Project-HAMi/community/blob/main/ambassador-program.md";
+
+// Ambassadors currently in term; the canonical roster with terms lives at
+// https://github.com/Project-HAMi/community/blob/main/ambassador-list.md
+const ambassadors = [
+  {
+    name: "Mesut Oezdil",
+    github: "https://github.com/mesutoezdil",
+    avatar: "img/community/ambassadors/mesut-oezdil.jpg",
+  },
+  {
+    name: "Tianqing Wang",
+    nameZh: "王天青",
+    github: "https://github.com/grissomsh",
+    avatar: "img/community/ambassadors/tianqing-wang.jpg",
+  },
+  {
+    name: "Xueduan Li",
+    nameZh: "李学端",
+    github: "https://github.com/lixd",
+    avatar: "img/community/ambassadors/xueduan-li.jpg",
+  },
+  {
+    name: "Shivam Kumar",
+    github: "https://github.com/maishivamhoo123",
+    avatar: "img/community/ambassadors/shivam-kumar.jpg",
+  },
+  {
+    name: "Saiyam Pathak",
+    github: "https://github.com/saiyam1814",
+    avatar: "img/community/ambassadors/saiyam-pathak.jpg",
+  },
+];
+
 function getGitHubUsername(profileUrl) {
   return profileUrl.replace("https://github.com/", "").replace(/\/$/, "");
 }
@@ -72,6 +107,9 @@ export default function CommunityPage() {
   const wechatOfficialQr = useBaseUrl("img/community/wechat-official-account-qr.jpg");
   const wechatVideoQr = useBaseUrl("img/community/wechat-video-channel-qr.jpg");
   const wechatAssistantQr = useBaseUrl("img/community/wechat-assistant-qr.jpg");
+  const imageBaseUrl = useBaseUrl("/");
+  const imagePrefix = imageBaseUrl.endsWith("/") ? imageBaseUrl.slice(0, -1) : imageBaseUrl;
+  const withBaseUrl = (path) => `${imagePrefix}/${path.replace(/^\//, "")}`;
   const cardConfig = [
     {
       key: "join",
@@ -258,6 +296,62 @@ export default function CommunityPage() {
                             </span>
                             <a
                               href={maintainer.github}
+                              target="_blank"
+                              rel="noreferrer"
+                              className={styles.githubLink}
+                            >
+                              <FontAwesomeIcon icon={faGithub} />
+                              <span>@{username}</span>
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className="container">
+            <div className={styles.governanceSection}>
+              <h2 className={styles.ambassadorsTitle}>{isZh ? "大使" : "Ambassadors"}</h2>
+              <p className={styles.governanceIntro}>
+                {isZh
+                  ? "HAMi 大使通过内容创作、活动组织和社区支持推广项目。"
+                  : "HAMi Ambassadors evangelize the project through content, events, and community support."}
+              </p>
+              <a
+                href={ambassadorProgramUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.programLink}
+              >
+                {isZh
+                  ? "了解大使计划与申请方式 →"
+                  : "Learn about the Ambassador Program and how to apply →"}
+              </a>
+              <div className={styles.ambassadorsGrid}>
+                {ambassadors.map((ambassador) => {
+                  const username = getGitHubUsername(ambassador.github);
+                  const displayName =
+                    isZh && ambassador.nameZh ? ambassador.nameZh : ambassador.name;
+                  return (
+                    <article key={ambassador.github} className={styles.ambassadorCard}>
+                      <div className={styles.ambassadorTop}>
+                        <img
+                          className={styles.ambassadorAvatar}
+                          src={withBaseUrl(ambassador.avatar)}
+                          alt={`${displayName} photo`}
+                          loading="lazy"
+                        />
+                        <div className={styles.ambassadorBody}>
+                          <h3 className={styles.ambassadorName}>{displayName}</h3>
+                          <p className={styles.ambassadorMeta}>
+                            <a
+                              href={ambassador.github}
                               target="_blank"
                               rel="noreferrer"
                               className={styles.githubLink}

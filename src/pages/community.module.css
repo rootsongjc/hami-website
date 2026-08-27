@@ -177,17 +177,26 @@
   color: var(--ifm-color-emphasis-700);
 }
 
-.maintainersTitle {
+.programLink {
+  justify-self: start;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.maintainersTitle,
+.ambassadorsTitle {
   margin: 0;
 }
 
-.maintainersGrid {
+.maintainersGrid,
+.ambassadorsGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.875rem;
 }
 
-.maintainerCard {
+.maintainerCard,
+.ambassadorCard {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -200,22 +209,26 @@
     box-shadow 0.2s ease;
 }
 
-.maintainerCard:hover {
+.maintainerCard:hover,
+.ambassadorCard:hover {
   border-color: color-mix(in srgb, var(--hami-color-primary) 42%, var(--hami-color-border));
   box-shadow: 0 8px 20px rgba(17, 24, 39, 0.06);
 }
 
-[data-theme="dark"] .maintainerCard:hover {
+[data-theme="dark"] .maintainerCard:hover,
+[data-theme="dark"] .ambassadorCard:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
 
-.maintainerTop {
+.maintainerTop,
+.ambassadorTop {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-.maintainerAvatar {
+.maintainerAvatar,
+.ambassadorAvatar {
   width: 48px;
   height: 48px;
   border-radius: 999px;
@@ -224,20 +237,23 @@
   flex-shrink: 0;
 }
 
-.maintainerBody {
+.maintainerBody,
+.ambassadorBody {
   display: flex;
   flex-direction: column;
   gap: 0.28rem;
   min-width: 0;
 }
 
-.maintainerName {
+.maintainerName,
+.ambassadorName {
   margin: 0;
   font-size: 0.98rem;
   line-height: 1.2;
 }
 
-.maintainerMeta {
+.maintainerMeta,
+.ambassadorMeta {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -304,7 +320,8 @@
     grid-template-columns: 1fr;
   }
 
-  .maintainersGrid {
+  .maintainersGrid,
+  .ambassadorsGrid {
     grid-template-columns: 1fr;
   }
 }
