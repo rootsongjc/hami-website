@@ -1,12 +1,13 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import useBaseUrl from "@docusaurus/useBaseUrl";
+import useBaseUrl, { useBaseUrlUtils } from "@docusaurus/useBaseUrl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBilibili,
   faDiscord,
   faGithub,
+  faLinkedin,
   faSlack,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
@@ -15,9 +16,11 @@ import {
   faCalendarDays,
   faCodeBranch,
   faFileLines,
+  faGlobe,
   faUsers,
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
+import ambassadors from "../data/ambassadors.json";
 import styles from "./community.module.css";
 
 const maintainers = [
@@ -58,40 +61,10 @@ const maintainers = [
   },
 ];
 
+// The ambassador roster lives in ../data/ambassadors.json, ordered as in the
+// canonical list at https://github.com/Project-HAMi/community/blob/main/ambassador-list.md
 const ambassadorProgramUrl =
   "https://github.com/Project-HAMi/community/blob/main/ambassador-program.md";
-
-// Ambassadors currently in term; the canonical roster with terms lives at
-// https://github.com/Project-HAMi/community/blob/main/ambassador-list.md
-const ambassadors = [
-  {
-    name: "Mesut Oezdil",
-    github: "https://github.com/mesutoezdil",
-    avatar: "img/community/ambassadors/mesut-oezdil.jpg",
-  },
-  {
-    name: "Tianqing Wang",
-    nameZh: "王天青",
-    github: "https://github.com/grissomsh",
-    avatar: "img/community/ambassadors/tianqing-wang.jpg",
-  },
-  {
-    name: "Xueduan Li",
-    nameZh: "李学端",
-    github: "https://github.com/lixd",
-    avatar: "img/community/ambassadors/xueduan-li.jpg",
-  },
-  {
-    name: "Shivam Kumar",
-    github: "https://github.com/maishivamhoo123",
-    avatar: "img/community/ambassadors/shivam-kumar.jpg",
-  },
-  {
-    name: "Saiyam Pathak",
-    github: "https://github.com/saiyam1814",
-    avatar: "img/community/ambassadors/saiyam-pathak.jpg",
-  },
-];
 
 function getGitHubUsername(profileUrl) {
   return profileUrl.replace("https://github.com/", "").replace(/\/$/, "");
@@ -107,9 +80,7 @@ export default function CommunityPage() {
   const wechatOfficialQr = useBaseUrl("img/community/wechat-official-account-qr.jpg");
   const wechatVideoQr = useBaseUrl("img/community/wechat-video-channel-qr.jpg");
   const wechatAssistantQr = useBaseUrl("img/community/wechat-assistant-qr.jpg");
-  const imageBaseUrl = useBaseUrl("/");
-  const imagePrefix = imageBaseUrl.endsWith("/") ? imageBaseUrl.slice(0, -1) : imageBaseUrl;
-  const withBaseUrl = (path) => `${imagePrefix}/${path.replace(/^\//, "")}`;
+  const { withBaseUrl } = useBaseUrlUtils();
   const cardConfig = [
     {
       key: "join",
@@ -338,6 +309,8 @@ export default function CommunityPage() {
                   const username = getGitHubUsername(ambassador.github);
                   const displayName =
                     isZh && ambassador.nameZh ? ambassador.nameZh : ambassador.name;
+                  const displayLocation =
+                    isZh && ambassador.locationZh ? ambassador.locationZh : ambassador.location;
                   return (
                     <article key={ambassador.github} className={styles.ambassadorCard}>
                       <div className={styles.ambassadorTop}>
@@ -350,6 +323,14 @@ export default function CommunityPage() {
                         <div className={styles.ambassadorBody}>
                           <h3 className={styles.ambassadorName}>{displayName}</h3>
                           <p className={styles.ambassadorMeta}>
+                            {displayLocation && (
+                              <>
+                                <span>{displayLocation}</span>
+                                <span className={styles.metaSeparator} aria-hidden="true">
+                                  •
+                                </span>
+                              </>
+                            )}
                             <a
                               href={ambassador.github}
                               target="_blank"
@@ -359,6 +340,38 @@ export default function CommunityPage() {
                               <FontAwesomeIcon icon={faGithub} />
                               <span>@{username}</span>
                             </a>
+                            {ambassador.linkedin && (
+                              <>
+                                <span className={styles.metaSeparator} aria-hidden="true">
+                                  •
+                                </span>
+                                <a
+                                  href={ambassador.linkedin}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className={styles.githubLink}
+                                >
+                                  <FontAwesomeIcon icon={faLinkedin} />
+                                  <span>LinkedIn</span>
+                                </a>
+                              </>
+                            )}
+                            {ambassador.website && (
+                              <>
+                                <span className={styles.metaSeparator} aria-hidden="true">
+                                  •
+                                </span>
+                                <a
+                                  href={ambassador.website}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className={styles.githubLink}
+                                >
+                                  <FontAwesomeIcon icon={faGlobe} />
+                                  <span>{isZh ? "个人主页" : "Website"}</span>
+                                </a>
+                              </>
+                            )}
                           </p>
                         </div>
                       </div>
