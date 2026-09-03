@@ -21,7 +21,7 @@ import {
   faUsers,
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
-import ambassadors from "../data/ambassadors.json";
+import ambassadorRoster from "../data/ambassadors.json";
 import styles from "./community.module.css";
 
 const maintainers = [
@@ -62,8 +62,9 @@ const maintainers = [
   },
 ];
 
-// The ambassador roster lives in ../data/ambassadors.json, ordered as in the
-// canonical list at https://github.com/Project-HAMi/community/blob/main/ambassador-list.md
+// This local roster adds presentation fields that are not in the canonical
+// list. Keep its members and term metadata in sync with ambassadorRoster.source.
+const ambassadors = ambassadorRoster.ambassadors;
 const ambassadorProgramUrl =
   "https://github.com/Project-HAMi/community/blob/main/ambassador-program.md";
 
@@ -239,7 +240,7 @@ export default function CommunityPage() {
                         <img
                           className={styles.maintainerAvatar}
                           src={`${maintainer.github}.png?size=160`}
-                          alt={`${maintainer.name} GitHub avatar`}
+                          alt=""
                           loading="lazy"
                         />
                         <div className={styles.maintainerBody}>
@@ -292,8 +293,8 @@ export default function CommunityPage() {
               <h2 className={styles.ambassadorsTitle}>{isZh ? "大使" : "Ambassadors"}</h2>
               <p className={styles.governanceIntro}>
                 {isZh
-                  ? "HAMi 大使通过内容创作、活动组织和社区支持推广项目。"
-                  : "HAMi Ambassadors evangelize the project through content, events, and community support."}
+                  ? `当前 ${ambassadorRoster.term.label} 任期的 HAMi 大使通过内容创作、活动组织和社区支持推广项目。`
+                  : `HAMi Ambassadors in the current ${ambassadorRoster.term.label} term evangelize the project through content, events, and community support.`}
               </p>
               <a
                 href={ambassadorProgramUrl}
@@ -318,7 +319,7 @@ export default function CommunityPage() {
                         <img
                           className={styles.ambassadorAvatar}
                           src={withBaseUrl(ambassador.avatar)}
-                          alt={`${displayName} photo`}
+                          alt=""
                           loading="lazy"
                         />
                         <div className={styles.ambassadorBody}>
@@ -330,14 +331,7 @@ export default function CommunityPage() {
                                 <span>{displayLocation}</span>
                               </span>
                             )}
-                            <nav
-                              className={styles.ambassadorLinks}
-                              aria-label={
-                                isZh
-                                  ? `${displayName} 的个人链接`
-                                  : `${displayName}'s profile links`
-                              }
-                            >
+                            <div className={styles.ambassadorLinks}>
                               <a
                                 href={ambassador.github}
                                 target="_blank"
@@ -379,7 +373,7 @@ export default function CommunityPage() {
                                   <FontAwesomeIcon icon={faGlobe} aria-hidden="true" />
                                 </a>
                               )}
-                            </nav>
+                            </div>
                           </div>
                         </div>
                       </div>
