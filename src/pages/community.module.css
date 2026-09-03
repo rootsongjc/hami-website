@@ -183,20 +183,17 @@
   font-size: 0.92rem;
 }
 
-.maintainersTitle,
-.ambassadorsTitle {
+.peopleTitle {
   margin: 0;
 }
 
-.maintainersGrid,
-.ambassadorsGrid {
+.peopleGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.875rem;
 }
 
-.maintainerCard,
-.ambassadorCard {
+.personCard {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -209,19 +206,16 @@
     box-shadow 0.2s ease;
 }
 
-.maintainerCard:hover,
-.ambassadorCard:hover {
+.personCard:hover {
   border-color: color-mix(in srgb, var(--hami-color-primary) 42%, var(--hami-color-border));
   box-shadow: 0 8px 20px rgba(17, 24, 39, 0.06);
 }
 
-[data-theme="dark"] .maintainerCard:hover,
-[data-theme="dark"] .ambassadorCard:hover {
+[data-theme="dark"] .personCard:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
 
-.maintainerTop,
-.ambassadorTop {
+.personTop {
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -235,8 +229,7 @@
   margin-top: 0.1rem;
 }
 
-.maintainerAvatar,
-.ambassadorAvatar {
+.personAvatar {
   width: 48px;
   height: 48px;
   border-radius: 999px;
@@ -245,16 +238,14 @@
   flex-shrink: 0;
 }
 
-.maintainerBody,
-.ambassadorBody {
+.personBody {
   display: flex;
   flex-direction: column;
   gap: 0.28rem;
   min-width: 0;
 }
 
-.maintainerName,
-.ambassadorName {
+.personName {
   margin: 0;
   font-size: 0.98rem;
   line-height: 1.2;
@@ -390,8 +381,7 @@
     grid-template-columns: 1fr;
   }
 
-  .maintainersGrid,
-  .ambassadorsGrid {
+  .peopleGrid {
     grid-template-columns: 1fr;
   }
 }

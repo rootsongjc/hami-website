@@ -224,27 +224,27 @@ export default function CommunityPage() {
         <section className={styles.section}>
           <div className="container">
             <div className={styles.governanceSection}>
-              <h2 className={styles.maintainersTitle}>{isZh ? "维护者" : "Maintainers"}</h2>
+              <h2 className={styles.peopleTitle}>{isZh ? "维护者" : "Maintainers"}</h2>
               <p className={styles.governanceIntro}>
                 {isZh
                   ? "HAMi 由以下维护者共同推进，负责项目方向、评审与版本发布。"
                   : "HAMi is maintained by the people below, who help guide project direction, reviews, and releases."}
               </p>
 
-              <div className={styles.maintainersGrid}>
+              <div className={styles.peopleGrid}>
                 {maintainers.map((maintainer) => {
                   const username = getGitHubUsername(maintainer.github);
                   return (
-                    <article key={maintainer.github} className={styles.maintainerCard}>
-                      <div className={styles.maintainerTop}>
+                    <article key={maintainer.github} className={styles.personCard}>
+                      <div className={styles.personTop}>
                         <img
-                          className={styles.maintainerAvatar}
+                          className={styles.personAvatar}
                           src={`${maintainer.github}.png?size=160`}
                           alt=""
                           loading="lazy"
                         />
-                        <div className={styles.maintainerBody}>
-                          <h3 className={styles.maintainerName}>{maintainer.name}</h3>
+                        <div className={styles.personBody}>
+                          <h3 className={styles.personName}>{maintainer.name}</h3>
                           <p className={styles.maintainerMeta}>
                             {maintainer.employerUrl ? (
                               <a
@@ -290,7 +290,7 @@ export default function CommunityPage() {
         <section className={styles.section}>
           <div className="container">
             <div className={styles.governanceSection}>
-              <h2 className={styles.ambassadorsTitle}>{isZh ? "大使" : "Ambassadors"}</h2>
+              <h2 className={styles.peopleTitle}>{isZh ? "大使" : "Ambassadors"}</h2>
               <p className={styles.governanceIntro}>
                 {isZh
                   ? `当前 ${ambassadorRoster.term.label} 任期的 HAMi 大使通过内容创作、活动组织和社区支持推广项目。`
@@ -306,7 +306,7 @@ export default function CommunityPage() {
                   ? "了解大使计划与申请方式 →"
                   : "Learn about the Ambassador Program and how to apply →"}
               </a>
-              <div className={styles.ambassadorsGrid}>
+              <div className={styles.peopleGrid}>
                 {ambassadors.map((ambassador) => {
                   const username = getGitHubUsername(ambassador.github);
                   const displayName =
@@ -314,16 +314,16 @@ export default function CommunityPage() {
                   const displayLocation =
                     isZh && ambassador.locationZh ? ambassador.locationZh : ambassador.location;
                   return (
-                    <article key={ambassador.github} className={styles.ambassadorCard}>
-                      <div className={styles.ambassadorTop}>
+                    <article key={ambassador.github} className={styles.personCard}>
+                      <div className={`${styles.personTop} ${styles.ambassadorTop}`}>
                         <img
-                          className={styles.ambassadorAvatar}
+                          className={`${styles.personAvatar} ${styles.ambassadorAvatar}`}
                           src={withBaseUrl(ambassador.avatar)}
                           alt=""
                           loading="lazy"
                         />
-                        <div className={styles.ambassadorBody}>
-                          <h3 className={styles.ambassadorName}>{displayName}</h3>
+                        <div className={styles.personBody}>
+                          <h3 className={styles.personName}>{displayName}</h3>
                           <div className={styles.ambassadorMetaRow}>
                             {displayLocation && (
                               <span className={styles.ambassadorLocation}>
