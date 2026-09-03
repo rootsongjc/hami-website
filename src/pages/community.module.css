@@ -227,6 +227,14 @@
   gap: 0.8rem;
 }
 
+.ambassadorTop {
+  align-items: flex-start;
+}
+
+.ambassadorAvatar {
+  margin-top: 0.1rem;
+}
+
 .maintainerAvatar,
 .ambassadorAvatar {
   width: 48px;
@@ -252,8 +260,7 @@
   line-height: 1.2;
 }
 
-.maintainerMeta,
-.ambassadorMeta {
+.maintainerMeta {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -262,6 +269,69 @@
   color: var(--ifm-color-emphasis-700);
   font-size: 0.9rem;
   line-height: 1.3;
+}
+
+.ambassadorMetaRow,
+.ambassadorLocation {
+  display: flex;
+  align-items: center;
+}
+
+.ambassadorMetaRow {
+  flex-wrap: wrap;
+  gap: 0.15rem 0.75rem;
+}
+
+.ambassadorLocation {
+  gap: 0.4rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.ambassadorLocation svg {
+  width: 0.72rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.ambassadorLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.ambassadorLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.ambassadorLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.ambassadorGithubLink {
+  margin-right: 0.25rem;
+}
+
+.ambassadorIconLink {
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 6px;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.ambassadorIconLink:hover,
+.ambassadorIconLink:focus-visible {
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
 }
 
 .metaSeparator {

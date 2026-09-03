@@ -17,6 +17,7 @@ import {
   faCodeBranch,
   faFileLines,
   faGlobe,
+  faLocationDot,
   faUsers,
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
@@ -322,57 +323,64 @@ export default function CommunityPage() {
                         />
                         <div className={styles.ambassadorBody}>
                           <h3 className={styles.ambassadorName}>{displayName}</h3>
-                          <p className={styles.ambassadorMeta}>
+                          <div className={styles.ambassadorMetaRow}>
                             {displayLocation && (
-                              <>
+                              <span className={styles.ambassadorLocation}>
+                                <FontAwesomeIcon icon={faLocationDot} aria-hidden="true" />
                                 <span>{displayLocation}</span>
-                                <span className={styles.metaSeparator} aria-hidden="true">
-                                  •
-                                </span>
-                              </>
+                              </span>
                             )}
-                            <a
-                              href={ambassador.github}
-                              target="_blank"
-                              rel="noreferrer"
-                              className={styles.githubLink}
+                            <nav
+                              className={styles.ambassadorLinks}
+                              aria-label={
+                                isZh
+                                  ? `${displayName} 的个人链接`
+                                  : `${displayName}'s profile links`
+                              }
                             >
-                              <FontAwesomeIcon icon={faGithub} />
-                              <span>@{username}</span>
-                            </a>
-                            {ambassador.linkedin && (
-                              <>
-                                <span className={styles.metaSeparator} aria-hidden="true">
-                                  •
-                                </span>
+                              <a
+                                href={ambassador.github}
+                                target="_blank"
+                                rel="noreferrer"
+                                className={`${styles.ambassadorLink} ${styles.ambassadorGithubLink}`}
+                              >
+                                <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
+                                <span>@{username}</span>
+                              </a>
+                              {ambassador.linkedin && (
                                 <a
                                   href={ambassador.linkedin}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className={styles.githubLink}
+                                  className={`${styles.ambassadorLink} ${styles.ambassadorIconLink}`}
+                                  aria-label={
+                                    isZh
+                                      ? `${displayName} 的 LinkedIn`
+                                      : `${displayName}'s LinkedIn profile`
+                                  }
+                                  title="LinkedIn"
                                 >
-                                  <FontAwesomeIcon icon={faLinkedin} />
-                                  <span>LinkedIn</span>
+                                  <FontAwesomeIcon icon={faLinkedin} aria-hidden="true" />
                                 </a>
-                              </>
-                            )}
-                            {ambassador.website && (
-                              <>
-                                <span className={styles.metaSeparator} aria-hidden="true">
-                                  •
-                                </span>
+                              )}
+                              {ambassador.website && (
                                 <a
                                   href={ambassador.website}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className={styles.githubLink}
+                                  className={`${styles.ambassadorLink} ${styles.ambassadorIconLink}`}
+                                  aria-label={
+                                    isZh
+                                      ? `${displayName} 的个人主页`
+                                      : `${displayName}'s personal website`
+                                  }
+                                  title={isZh ? "个人主页" : "Website"}
                                 >
-                                  <FontAwesomeIcon icon={faGlobe} />
-                                  <span>{isZh ? "个人主页" : "Website"}</span>
+                                  <FontAwesomeIcon icon={faGlobe} aria-hidden="true" />
                                 </a>
-                              </>
-                            )}
-                          </p>
+                              )}
+                            </nav>
+                          </div>
                         </div>
                       </div>
                     </article>
