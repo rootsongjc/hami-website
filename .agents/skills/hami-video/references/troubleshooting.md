@@ -16,6 +16,10 @@
 
 ## §tts — narration engines
 
+- **Credential resolution order** (`scripts/azure_tts.py`): env vars
+  `AZURE_SPEECH_KEY` + `AZURE_SPEECH_REGION` first (CI / GitHub Actions
+  secrets / local `export` — no file on disk needed), then the gitignored
+  `video/.azure-speech.json` `{"region","key"}`.
 - **zh = Azure Speech REST** via `scripts/azure_tts.py`, voice
   `zh-CN-XiaochenMultilingualNeural`, rate +8%, no style (multilingual voices
   take none). Credentials `video/.azure-speech.json` `{"region","key"}`
@@ -36,6 +40,18 @@
 - Model caches: Kokoro/voices + whisper ggml under `~/.cache/hyperframes/`.
 - whisper round-trip QA: `npx hyperframes transcribe X.wav --model small
   --language zh` (writes transcript.json next to input, overwrites each run).
+
+## §ci — GitHub Actions narration service
+
+`.github/workflows/video-narration.yml` (hami-website `multimedia` branch):
+manual `workflow_dispatch` job that regenerates narration + captions + BGM on
+GitHub runners using repo secrets `AZURE_SPEECH_KEY` / `AZURE_SPEECH_REGION`,
+uploading `video/public/audio/` + generated timing as an artifact
+(30-day retention). Local flow when the local credential file is gone/absent:
+run the workflow → download artifact → unzip into `video/` → `npm run render`.
+NOTE GitHub Secrets are WRITE-ONLY (injectable into Actions runs, never
+readable back via git/API) — they are not a key backup; keep a copy in a
+password manager.
 
 ## §remotion — framework traps
 

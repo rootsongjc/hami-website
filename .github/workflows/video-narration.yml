@@ -1,0 +1,75 @@
+# Regenerates narration audio + timing + captions + BGM using TTS.
+#
+# Purpose: the Azure Speech credential never needs to live on a dev machine —
+# set repo secrets AZURE_SPEECH_KEY and AZURE_SPEECH_REGION (GitHub repo →
+# Settings → Secrets and variables → Actions) and run this workflow; download
+# the audio artifact and drop it into video/public/audio/ to re-render.
+#
+# Secrets are injected as env vars only inside this job; scripts/azure_tts.py
+# reads AZURE_SPEECH_KEY / AZURE_SPEECH_REGION before falling back to the
+# (gitignored) video/.azure-speech.json file.
+name: video-narration
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip-narration:
+        description: "Skip TTS synthesis (captions/BGM only, from committed timing)"
+        type: boolean
+        default: false
+
+jobs:
+  narration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: video
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install system + python deps
+        run: |
+          sudo apt-get update && sudo apt-get install -y espeak-ng
+          python3 -m pip install --upgrade pip
+          python3 -m pip install numpy
+
+      - name: Warm Kokoro model cache (en voice)
+        run: npx --yes hyperframes tts hi --voice af_sky --output /tmp/warm.wav
+
+      - name: Synthesize narration (zh Azure + en Kokoro) and re-time scenes
+        if: ${{ !inputs.skip-narration }}
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: |
+          if [ -z "$AZURE_SPEECH_KEY" ]; then
+            echo "::error::AZURE_SPEECH_KEY secret not set (repo Settings > Secrets and variables > Actions)"; exit 1
+          fi
+          python3 scripts/build_narration.py
+
+      - name: Build caption tracks
+        run: python3 scripts/build_captions.py
+
+      - name: Synthesize BGM beds
+        run: |
+          python3 scripts/make_bgm.py --frames "$(python3 -c "import json;print(sum(json.load(open('src/timing.generated.json'))['zh'].values()))")" --output public/audio/bgm-zh.wav
+          python3 scripts/make_bgm.py --frames "$(python3 -c "import json;print(sum(json.load(open('src/timing.generated.json'))['en'].values()))")" --output public/audio/bgm-en.wav
+
+      - name: Upload narration + BGM + generated timing
+        uses: actions/upload-artifact@v4
+        with:
+          name: hami-video-audio
+          retention-days: 30
+          path: |
+            video/public/audio/
+            video/src/timing.generated.json
+            video/src/captions.generated.json

@@ -10,6 +10,7 @@ SSML output is riff-24khz-16bit-mono-pcm WAV (24 kHz mono 16-bit).
 """
 import argparse
 import json
+import os
 import sys
 import urllib.request
 
@@ -17,7 +18,14 @@ BASE_FORMAT = "riff-24khz-16bit-mono-pcm"
 
 
 def load_cfg():
-    with open(__file__.replace("scripts/azure_tts.py", ".azure-speech.json")) as f:
+    # Environment variables win (CI / GitHub Actions secrets, export-based
+    # local use) — no credential file needs to exist on disk.
+    env_key = os.environ.get("AZURE_SPEECH_KEY")
+    env_region = os.environ.get("AZURE_SPEECH_REGION")
+    if env_key and env_region:
+        return {"region": env_region, "key": env_key}
+    with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                           ".azure-speech.json")) as f:
         return json.load(f)
 
 
