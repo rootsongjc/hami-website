@@ -1,0 +1,7 @@
+node_modules/
+out/
+public/audio/*
+!public/audio/.gitkeep
+.azure-speech.json
+.DS_Store
+stills*/

@@ -1,0 +1,24 @@
+{
+  "zh": {
+    "intro": 321,
+    "stats": 247,
+    "remoteGpu": 266,
+    "amd": 273,
+    "ascend": 224,
+    "numa": 229,
+    "more": 328,
+    "upgrade": 222,
+    "outro": 245
+  },
+  "en": {
+    "intro": 297,
+    "stats": 240,
+    "remoteGpu": 250,
+    "amd": 310,
+    "ascend": 220,
+    "numa": 220,
+    "more": 275,
+    "upgrade": 233,
+    "outro": 241
+  }
+}

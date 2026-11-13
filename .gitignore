@@ -9,6 +9,8 @@ build
 .DS_Store
 changelog/source
 .codegraph/
+# DSH agent worktrees live here on dev machines — never commit them
+.agents/worktrees/
 # HAMi video pipeline (Remotion) — generated artifacts, never commit
 video/out/
 video/public/audio/
