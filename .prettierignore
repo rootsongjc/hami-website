@@ -2,6 +2,7 @@ node_modules
 build
 .docusaurus
 output
+video
 versioned_docs
 versioned_sidebars
 package-lock.json

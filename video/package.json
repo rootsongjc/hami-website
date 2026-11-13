@@ -1,0 +1,33 @@
+{
+  "name": "hami-2-11-announcement-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HAMi v2.11.0 release announcement video (zh), built with Remotion",
+  "scripts": {
+    "dev": "remotion studio",
+    "narration": "python3 scripts/build_narration.py",
+    "captions": "python3 scripts/build_captions.py",
+    "bgm": "python3 scripts/make_bgm.py --frames $(python3 -c \"import json;print(sum(json.load(open('src/timing.generated.json'))['zh'].values()))\") --output public/audio/bgm-zh.wav",
+    "render": "remotion render HAMI211ZH out/hami-v2.11.0-announcement-zh.mp4 && remotion render HAMI211ZHV out/hami-v2.11.0-announcement-zh-vertical.mp4",
+    "render:en": "remotion render HAMI211EN out/hami-v2.11.0-announcement-en.mp4 && remotion render HAMI211ENV out/hami-v2.11.0-announcement-en-vertical.mp4",
+    "render:nocap": "remotion render HAMI211ZH out/hami-v2.11.0-announcement-zh-clean.mp4 --props='{\"captions\":false}' && remotion render HAMI211ZHV out/hami-v2.11.0-announcement-zh-vertical-clean.mp4 --props='{\"captions\":false}'",
+    "render:cap:en": "remotion render HAMI211EN out/hami-v2.11.0-announcement-en-captioned.mp4 --props='{\"captions\":true}' && remotion render HAMI211ENV out/hami-v2.11.0-announcement-en-vertical-captioned.mp4 --props='{\"captions\":true}'",
+    "render:prores": "remotion render HAMI211ZH out/hami-v2.11.0-announcement-zh.mov --prores-res=hq4444",
+    "still": "remotion still HAMI211ZH out/still.png --frame=0",
+    "upgrade": "remotion upgrade",
+    "bgm:en": "python3 scripts/make_bgm.py --frames $(python3 -c \"import json;print(sum(json.load(open('src/timing.generated.json'))['en'].values()))\") --output public/audio/bgm-en.wav"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.2.5",
+    "@fontsource/noto-sans-sc": "^5.2.5",
+    "@fontsource/space-grotesk": "^5.2.5",
+    "@remotion/cli": "4.0.409",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "remotion": "4.0.409"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "typescript": "^5.9.3"
+  }
+}

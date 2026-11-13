@@ -9,3 +9,9 @@ build
 .DS_Store
 changelog/source
 .codegraph/
+# HAMi video pipeline (Remotion) — generated artifacts, never commit
+video/out/
+video/public/audio/
+video/node_modules/
+video/scripts/__pycache__/
+video/.azure-speech.json
